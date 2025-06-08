@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# panlang-setup: A setup script for PanLang
+
+INSTALL_DIR="/usr/local/bin"
+SOURCE_DIR="$(dirname "$0")" # Directory where this script is located
+
+echo "Starting PanLang setup..."
+
+# Check if the installation directory exists and is writable
+if [ ! -d "$INSTALL_DIR" ]; then
+    echo "Directory $INSTALL_DIR does not exist. Attempting to create it."
+    sudo mkdir -p "$INSTALL_DIR" || { echo "Error: Could not create $INSTALL_DIR. Please check permissions."; exit 1; }
+fi
+
+if [ ! -w "$INSTALL_DIR" ]; then
+    echo "Directory $INSTALL_DIR is not writable. Attempting to gain write permissions."
+    sudo chmod a+w "$INSTALL_DIR" || { echo "Error: Could not set write permissions on $INSTALL_DIR. Please check permissions."; exit 1; }
+fi
+
+echo "Copying PanLang executable to $INSTALL_DIR..."
+# Copy the main panlang executable script
+sudo cp "$SOURCE_DIR/panlang" "$INSTALL_DIR/panlang" || { echo "Error: Failed to copy panlang executable."; exit 1; }
+
+echo "Setting permissions for panlang executable..."
+# Make the copied script executable
+sudo chmod +x "$INSTALL_DIR/panlang" || { echo "Error: Failed to set executable permissions for panlang."; exit 1; }
+
+echo "PanLang setup complete. You can now run 'panlang' from your terminal."
+echo "Please ensure '$INSTALL_DIR' is in your system's PATH."
+
+# Optional: Add /usr/local/bin to PATH if not already present (for current session)
+if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then
+    echo "It appears $INSTALL_DIR is not in your current PATH."
+    echo "You might need to add 'export PATH=\"$PATH:$INSTALL_DIR\"' to your shell profile (~/.bashrc, ~/.zshrc, etc.)"
+    echo "Or run 'source ~/.bashrc' (or your respective shell profile) after adding it."
+fi
