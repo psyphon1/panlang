@@ -7,7 +7,7 @@ PanLang is a modern, Sanskrit-inspired programming language designed for scienti
 ## Project Status
 
 **This project is actively under development by Chinmay Duse(Psyphon1).**  
-I am building PanLang as a next-generation language for AI/ML and scientific research, with a focus on NASA-grade reliability and internationalization[1][2][3].
+I am building PanLang as a next-generation language for AI/ML and scientific research.
 
 ---
 
@@ -26,18 +26,27 @@ I am building PanLang as a next-generation language for AI/ML and scientific res
 
 src/
 ├── ast/ # Abstract Syntax Tree definitions and utilities
+
 ├── backend/ # Code generation (LLVM, bytecode, JIT, optimization)
+
 ├── cli/ # Command-line interface and REPL
+
 ├── compiler/ # Compiler logic, passes, diagnostics, emitters
+
 ├── interpreter/ # Interpreter/VM, REPL, runtime
+
 ├── lexer/ # Lexical analysis
+
 ├── parser/ # Parser (Lark, Pest, ANTLR), grammars, errors
+
 ├── stdlib/ # Core standard library bindings (math, string, list, etc.)
+
 ├── nlp/ # NLP modules: tokenization, tagging, NER, sentiment, etc.
+
 ├── ai_ml/ # AI/ML modules: model, train, eval, infer, export, etc.
+
 └── main.py # Main entry point
 
-text
 
 ---
 
