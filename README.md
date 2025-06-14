@@ -91,8 +91,7 @@ Please open issues or pull requests, or contact me directly if you’d like to g
 
 ## About the Author
 
-This project is being developed by Chinmay Duse(Psyphon1),  
-with a focus on AI/ML, scientific computing, and language design for NASA-grade and international research applications[1][2][3].
+This project is being developed by Chinmay Duse(Psyphon1).
 
 ---
 
